@@ -12,10 +12,20 @@ class BuysController extends Controller
         if (\Auth::check()) {
             $users = \Auth::User();
             $buys = $users->buys()->orderBy('created_at')->paginate(10);
+            $buys_total_value =
+            \App\Buy::whereYear('created_at', 2020)
+            ->get()
+            // ->groupBy(function ($row) {
+                // })
+            ->map(function ($day) {
+                $day->created_at->format('m');
+                return $day->sum('price');
+            });
 
             $data = [
                 'users' => $users,
-                'buys' => $buys
+                'buys' => $buys,
+                'buys_total_value' => $buys_total_value
             ];
         }
 
