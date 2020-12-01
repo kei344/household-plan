@@ -23,6 +23,7 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
 // ユーザー機能
 Route::group(['middleware' => 'auth'], function() {
-    Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
+    Route::resource('users', 'UsersController');
+
     Route::resource('buys', 'BuysController', ['only' => ['store', 'destroy']]);
 });

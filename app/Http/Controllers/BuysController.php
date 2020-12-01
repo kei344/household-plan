@@ -13,12 +13,12 @@ class BuysController extends Controller
             $users = \Auth::User();
             $buys = $users->buys()->orderBy('created_at')->paginate(10);
             $buys_total_value =
-            \App\Buy::whereYear('created_at', 2020)
+            \App\Buy::whereYear('created_at', date('Y'))
             ->get()
-            // ->groupBy(function ($row) {
-                // })
+            ->groupBy(function ($row) {
+                return $row->created_at->format('m');
+            })
             ->map(function ($day) {
-                $day->created_at->format('m');
                 return $day->sum('price');
             });
 

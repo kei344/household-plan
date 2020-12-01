@@ -14,11 +14,17 @@
             </div>
         </aside>
         <div class="col-sm-8">
-            <div>1月分</div>
-            <div>2月分</div>
-            <div>3月分</div>
-            <div>4月分</div>
-            <div>5月分</div>
-        </div>
+        <ul class="list-unstyled">
+            @for ($i = 1; $i <= 12; $i++)
+                <li class="media">
+                    <div class="mb-4">{{ $i }} 月分</div>
+                    <div class="media-body">
+                        <div>
+                            {{ $buys_total_value }}
+                        </div>
+                    </div>
+                </li>
+            @endfor
+        </ul>
     </div>
 @endsection

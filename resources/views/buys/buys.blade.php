@@ -27,6 +27,6 @@
             @endforeach
         </tbody>
     </table>
-    <h2>今月の支出額 {{ $buys_total_value[2] }} 円</h2>
+    <h2>今月の支出額 {{ $buys_total_value }} 円</h2>
     {{ $buys->links('pagination::bootstrap-4') }}
 @endif

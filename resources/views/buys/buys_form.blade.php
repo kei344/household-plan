@@ -3,7 +3,7 @@
                 <div class="row jumbotron">
                     <div class="form-group col-sm-5">
                         {!! Form::label('goods', '商品名') !!}
-                        {!! Form::text('goods', old('goods'), ['class' => 'form-control']) !!}
+                        {!! Form::text('goods', null, ['class' => 'form-control']) !!}
                     </div>
                     <div class="form-group col-sm-3">
                         {!! Form::label('price', '価格') !!}
