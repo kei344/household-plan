@@ -44,6 +44,7 @@ class BuysController extends Controller
             'goods' => $request->goods,
             'purchase_number' => $request->purchase_number,
             'price' => $request->price,
+            'user_id' => auth()->id(),
         ]);
 
         return back();

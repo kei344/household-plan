@@ -4,15 +4,16 @@
 
     <div class="row">
         <aside class="col-sm-4">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">{{ $user->name }}</h3>
+            @include('users.card', ['user' => $user])
+            {!! Form::open(['route' => ['users.upload', $user->id], 'method' => 'post', 'enctype' => 'multipart/form-data']) !!}
+                <div class="form-group">
+                    {!! Form::label('image', '画像ファイルを変更する', ['class' => 'mt-3']) !!}
+                    {!! Form::file('image', ['class' => 'form-control pb-5 pt-4']) !!}
                 </div>
-                <div class="card-body">
-                    <img class="" src="" alt="保存した画像を表示する">
+                <div class="text-right">
+                    {!! Form::submit('送信', ['class' => 'btn btn-primary mt-2']) !!}
                 </div>
-            </div>
-            <div class="btn btn-success btn-block mt-2">画像を変更する</div>
+            {!! Form::close() !!}
         </aside>
         <div class="col-sm-8">
             {!! Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'put']) !!}

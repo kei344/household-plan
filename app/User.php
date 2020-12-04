@@ -31,4 +31,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Buy::class);
     }
+
+    public function upload_image()
+    {
+        return $this->hasOne(UploadImage::class);
+    }
 }

@@ -2,7 +2,11 @@
     <ul class="list-unstyled">
         @foreach ($users as $user)
             <li class="media">
-                <img class="mr-2" src="" alt="保存した画像を表示する">
+                @if($user->upload_image === null)
+                    <img class="mr-2" src="{{ asset('/storage/uploads/no_image.png') }}" width="50" height="50" alt="No Image">
+                @else
+                    <img class="mr-2" src="{{ asset('/storage/'.$user->upload_image->file_path) }}" width="50" height="50" alt="No Image">
+                @endif
                 <div class="media-body">
                     <div>
                         {{ $user->name }}

@@ -4,14 +4,7 @@
 
     <div class="row">
         <aside class="col-sm-4">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">{{ $user->name }}</h3>
-                </div>
-                <div class="card-body">
-                    <img class="" src="" alt="保存した画像を表示する">
-                </div>
-            </div>
+            @include('users.card', ['user' => $user])
         </aside>
         <div class="col-sm-8">
         <ul class="list-unstyled">
